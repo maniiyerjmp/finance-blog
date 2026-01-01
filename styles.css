@@ -19,12 +19,14 @@ body {
   line-height: 1.75;
 }
 
+/* Container */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
 }
 
+/* Navbar */
 .navbar {
   position: sticky;
   top: 0;
@@ -52,20 +54,30 @@ body {
   font-weight: 500;
 }
 
+.nav-menu a:hover,
 .nav-menu a.active {
   color: var(--accent);
 }
 
+/* Hero */
 .hero {
   padding: 80px 0;
-  text-align: center;
 }
 
 .hero h2 {
   font-size: 2.2rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+.hero p {
+  max-width: 900px;
+  margin: auto;
+  text-align: justify;
+  color: var(--secondary);
+}
+
+/* Sections */
 .section {
   padding: 70px 0;
 }
@@ -79,6 +91,14 @@ body {
   margin-bottom: 20px;
 }
 
+/* Content text */
+.section p {
+  max-width: 900px;
+  text-align: justify;
+  color: var(--secondary);
+}
+
+/* Flowchart */
 .flowchart {
   margin-top: 40px;
   text-align: center;
@@ -99,9 +119,34 @@ body {
   color: var(--secondary);
 }
 
+/* Footer */
 .footer {
   background: #020617;
   color: #94a3b8;
   padding: 40px 0;
-  text-align: center;
+}
+
+.footer p {
+  max-width: 900px;
+  margin: auto;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+.footer span {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .section h3 {
+    font-size: 1.4rem;
+  }
 }
