@@ -6,27 +6,27 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background-color: #fafafa;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* Navigation */
+/* Navigation - Minimal & Elegant */
 .navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1rem 0;
+    background: #ffffff;
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .navbar .container {
@@ -35,451 +35,245 @@ body {
     align-items: center;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .nav-brand h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
 }
 
 .nav-menu {
-    display: flex;
     list-style: none;
-    gap: 2rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .nav-menu a {
-    color: white;
     text-decoration: none;
+    color: #525252;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
     font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    transition: all 0.2s ease;
 }
 
 .nav-menu a:hover {
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
+    background-color: #f5f5f5;
+    color: #1a1a1a;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 6rem 0;
+    padding: 80px 0;
     text-align: center;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
 }
 
 .hero-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 0.8s ease;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.95;
-    animation: fadeInUp 1s ease;
+    font-size: 20px;
+    color: #525252;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    background: white;
-    color: #667eea;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 8px;
     text-decoration: none;
-    border-radius: 50px;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    animation: fadeInUp 1.2s ease;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    border: 2px solid #1a1a1a;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background-color: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Section Styles */
-.section {
-    padding: 5rem 0;
+section {
+    padding: 80px 0;
 }
 
-.section-alt {
-    background: white;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #2d3748;
-}
-
-.section-intro {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #718096;
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Basics Grid */
-.basics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
-}
-
-.basic-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.basic-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.basic-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #667eea;
-}
-
-.basic-card p {
-    color: #4a5568;
-    line-height: 1.8;
-}
-
-/* Flowchart */
-.flowchart-section {
-    background: white;
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.flowchart-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #2d3748;
-}
-
-.flowchart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.flow-step {
-    flex: 1;
-    min-width: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem 1rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.flow-step:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-}
-
-.step-number {
-    background: rgba(255,255,255,0.3);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
+section h2 {
+    font-size: 36px;
     font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.flow-step h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.flow-step p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.flow-arrow {
-    font-size: 2rem;
-    color: #667eea;
-    font-weight: bold;
-}
-
-/* Stocks Section */
-.stocks-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.stocks-info h3, .stocks-tips h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
-}
-
-.stocks-info h4 {
-    font-size: 1.3rem;
-    margin: 1.5rem 0 1rem;
-    color: #667eea;
-}
-
-.stocks-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.stocks-list li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #e2e8f0;
-    line-height: 1.8;
-}
-
-.stocks-list li:last-child {
-    border-bottom: none;
-}
-
-.tip-card {
-    background: #f7fafc;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    border-left: 4px solid #667eea;
-    transition: all 0.3s ease;
-}
-
-.tip-card:hover {
-    background: #edf2f7;
-    transform: translateX(5px);
-}
-
-.tip-card h4 {
-    color: #667eea;
-    margin-bottom: 0.5rem;
-}
-
-/* Strategy Grid */
-.strategy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.strategy-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    border-top: 4px solid #667eea;
-}
-
-.strategy-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.strategy-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #2d3748;
-}
-
-.strategy-desc {
-    color: #4a5568;
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.strategy-pros {
-    background: #f7fafc;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-.strategy-pros h4 {
-    color: #667eea;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.strategy-pros p {
-    color: #4a5568;
-    font-size: 0.95rem;
-}
-
-/* Investment Flowchart */
-.investment-flowchart {
-    background: white;
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    margin-top: 3rem;
-}
-
-.decision-flow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.decision-step {
+    color: #1a1a1a;
+    margin-bottom: 16px;
     text-align: center;
+    letter-spacing: -0.02em;
 }
 
-.decision-box {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1.5rem 3rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-    transition: all 0.3s ease;
-}
-
-.decision-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-}
-
-.decision-note {
-    margin-top: 0.5rem;
-    color: #718096;
-    font-size: 0.95rem;
-    font-style: italic;
-}
-
-.flow-arrow-down {
-    font-size: 2rem;
-    color: #667eea;
-    font-weight: bold;
-}
-
-/* Resources Grid */
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.resource-card {
-    background: #f7fafc;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.resource-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
-}
-
-.resource-card ul {
-    list-style: none;
-}
-
-.resource-card li {
-    padding: 0.8rem 0;
-    color: #4a5568;
-    border-bottom: 1px solid #e2e8f0;
+section > p {
+    text-align: center;
+    font-size: 18px;
+    color: #525252;
+    max-width: 700px;
+    margin: 0 auto 48px;
     line-height: 1.6;
 }
 
-.resource-card li:last-child {
-    border-bottom: none;
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: #d4d4d4;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #525252;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.card ul {
+    list-style: none;
+    margin-top: 16px;
+}
+
+.card li {
+    color: #525252;
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    font-size: 15px;
+}
+
+.card li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Flowchart */
+.flowchart {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+    margin: 48px 0;
+}
+
+.step {
+    background: #fafafa;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-left: 3px solid #1a1a1a;
+}
+
+.step h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: #525252;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Pro/Beginner Sections */
+.section-header {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
 }
 
 /* Footer */
-.footer {
-    background: #2d3748;
-    color: white;
-    padding: 2rem 0;
+footer {
+    background: #ffffff;
+    padding: 48px 0;
     text-align: center;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 80px;
 }
 
-.footer p {
-    margin: 0.5rem 0;
-    opacity: 0.9;
+footer p {
+    color: #737373;
+    font-size: 14px;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
-    }
-    
     .hero-title {
-        font-size: 2rem;
+        font-size: 36px;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 18px;
     }
     
-    .stocks-content {
+    section h2 {
+        font-size: 28px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    
+    .nav-menu a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    
+    .cards {
         grid-template-columns: 1fr;
-    }
-    
-    .flowchart {
-        flex-direction: column;
-    }
-    
-    .flow-arrow {
-        transform: rotate(90deg);
-    }
-    
-    .section-title {
-        font-size: 2rem;
     }
 }
