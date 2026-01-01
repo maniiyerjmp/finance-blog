@@ -1,68 +1,104 @@
-// Smooth scrolling for navigation links
+/* ================================
+   Smooth Scrolling (Accessible)
+================================ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+  anchor.addEventListener('click', e => {
+    const targetId = anchor.getAttribute('href');
+    const targetEl = document.querySelector(targetId);
+
+    if (!targetEl) return;
+
+    e.preventDefault();
+    targetEl.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     });
+  });
 });
 
-// Add scroll animation for cards
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+/* ================================
+   Scroll Reveal Animations
+================================ */
+const revealElements = document.querySelectorAll(
+  '.basic-card, .strategy-card, .resource-card, .tip-card'
+);
 
-const observer = new IntersectionObserver(function(entries) {
+const revealObserver = new IntersectionObserver(
+  entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        revealObserver.unobserve(entry.target); // Animate once
+      }
     });
-}, observerOptions);
+  },
+  {
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
+  }
+);
 
-// Observe all cards
-document.querySelectorAll('.basic-card, .strategy-card, .resource-card, .tip-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
+revealElements.forEach(el => {
+  el.classList.add('reveal-hidden');
+  revealObserver.observe(el);
 });
 
-// Add active state to navigation
+/* ================================
+   Active Navigation Highlight
+   (Throttled for performance)
+================================ */
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      updateActiveNav();
+      ticking = false;
     });
-    
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+    ticking = true;
+  }
 });
 
-// Add hover effects to flowchart steps
-document.querySelectorAll('.flow-step, .decision-box').forEach(step => {
-    step.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.3s ease';
-    });
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPosition = window.scrollY + 220;
+
+  let currentSectionId = '';
+
+  sections.forEach(section => {
+    if (scrollPosition >= section.offsetTop) {
+      currentSectionId = section.id;
+    }
+  });
+
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.classList.toggle(
+      'active',
+      link.getAttribute('href') === `#${currentSectionId}`
+    );
+  });
+}
+
+/* ================================
+   Flowchart Hover Polish
+================================ */
+document.querySelectorAll('.flow-step, .decision-box').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.style.transform = 'scale(1.05)';
+    el.style.transition = 'transform 0.25s ease, box-shadow 0.25s ease';
+    el.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'scale(1)';
+    el.style.boxShadow = 'none';
+  });
 });
 
-// Log page load
-console.log('Finance Hub loaded successfully!');
-console.log('Ready to help you master your financial future! 💰');
+/* ================================
+   Console Branding (Production Safe)
+================================ */
+if (window.location.hostname === 'localhost' || window.location.hostname.includes('github')) {
+  console.log('%cFinance Hub Loaded Successfully', 'color:#0d6efd;font-weight:bold;');
+  console.log('%cBuild wealth with discipline & knowledge.', 'color:#28a745;');
+}
